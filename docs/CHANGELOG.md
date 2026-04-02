@@ -51,7 +51,9 @@ If you upgrade from version `< 9.0.0` see the following:
 
 - `Pagy.options`: Use `Pagy::OPTIONS` directly.
 - `Pagy.sync_javascript(...)`: Use `Pagy.sync(:javascript, ...)` instead.
-- `:max_pages` option: [follow this method](/guides/how-to/#paginate-only-max-records) instead.
+- `:max_pages` option: [follow this method](/guides/how-to/#paginate-only-max-records) instead.<br>
+  **IMPORTANT**: The [Issue #890](https://github.com/ddnexus/pagy/issues/890) still affect the `:max_pages` option, so stop using it ASAP.
+- `:client_max_limit` option: use `:max_limit` instead.
 <hr>
 
 #### Version 43.4.4

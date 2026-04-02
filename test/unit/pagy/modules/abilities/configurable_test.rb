@@ -15,13 +15,6 @@ describe 'Pagy::Configurable Specs' do
       FileUtils.rm_rf(destination)
     end
 
-    it "warns for deprecation" do
-      assert_output(nil, /Pagy.sync_javascript/) do
-        targets = %w[pagy.js pagy.min.js]
-        Pagy.sync_javascript(destination, *targets)
-      end
-    end
-
     it "copies specified javascript targets" do
       targets = %w[pagy.js pagy.min.js]
       Pagy.sync(:javascript, destination, *targets)

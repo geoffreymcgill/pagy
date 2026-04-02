@@ -233,7 +233,7 @@ The new version doesn't use the extras anymore. They got integrated in the core 
 | `limit_extra: ...`                 | delete                            |
 | `max_limit: ...`                   | delete                            |
 
-- Enable the feature by setting `client_max_limit: your_client_max_limit` option _(in the initializer or `pagy` method)_.
+- Enable the feature by setting `max_limit: allowed_max_limit` option _(in the initializer or `pagy` method)_.
 
 ==- `metadata`
 

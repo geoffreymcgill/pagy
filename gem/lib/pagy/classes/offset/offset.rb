@@ -46,7 +46,6 @@ class Pagy
 
     def assign_last
       @last = [(@count.to_f / @limit).ceil, 1].max
-      @last = @options[:max_pages] if @options[:max_pages] && @last > @options[:max_pages]
     end
 
     def assign_offset
@@ -58,5 +57,7 @@ class Pagy
       @in = @from = @to = 0     # options relative to the actual page
       @previous = @last         # @previous relative to the actual page
     end
+
+    prepend Deprecated::Offset if defined?(Deprecated::Offset)
   end
 end

@@ -33,12 +33,6 @@ class Pagy
 
   OPTIONS = {} # rubocop:disable Style/MutableConstant
 
-  def self.options
-    OPTIONS.tap do
-      warn "[PAGY] 'Pagy.options' is deprecated: use 'Pagy::OPTIONS directly'"
-    end
-  end
-
   extend Configurable
   include Linkable
   include HelperLoader
@@ -70,11 +64,6 @@ class Pagy
 
   # Merge all the DEFAULT constants of the class hierarchy with the options
   def assign_options(**options)
-    if options.key?(:max_pages)
-      warn "[PAGY] the ':max_pages' option is deprecated: " \
-           'use https://ddnexus.github.io/pagy/guides/how-to/#paginate-only-max-records instead.'
-    end
-
     @request = options.delete(:request) # internal object
     default  = {}
     current  = self.class
@@ -94,3 +83,5 @@ class Pagy
     include NumericHelperLoader
   end
 end
+
+require_relative 'pagy/deprecations'

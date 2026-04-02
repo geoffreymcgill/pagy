@@ -22,7 +22,7 @@ Fixed
 : Pass the `:limit` option to the paginator to set the number of items to serve with each page.
 
 Requestable
-: Pass the `:limit` option combined with the `:client_max_limit` option to the paginator, allowing the client to request a variable `:limit` up to the specified `:client_max_limit`.
+: Pass the `:limit` option combined with the `:max_limit` option to the paginator, allowing the client to request a variable `:limit` up to the specified `:max_limit`.
 
 Interactive
 : Use the [limit_tag_js](/toolbox/helpers/limit_tag_js) helper to provide a UI selector to the user.
@@ -185,7 +185,7 @@ Explore the following options:
 
 - [:keyset paginator](/toolbox/paginators/keyset)
 - [headers_hash helper](/toolbox/helpers/headers_hash)
-- `:client_max_limit` paginator option
+- `:max_limit` paginator option
 - `:jsonapi option` paginator option
 
 ==- Paginate for JavaScript Frameworks

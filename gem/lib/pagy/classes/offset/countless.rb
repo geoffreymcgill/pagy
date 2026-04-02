@@ -2,13 +2,12 @@
 
 class Pagy
   class Offset
-    # Offset pagination without a count
+    # Offset pagination without any COUNT query
     class Countless < Offset
       def initialize(**)
         assign_options(**)
         assign_and_check(limit: 1, page: 1)
-        @page = upto_max_pages(@page)
-        @last = upto_max_pages(@options[:last]) unless @options[:headless]
+        @last = @options[:last] unless @options[:headless]
         assign_offset
       end
 
@@ -24,12 +23,6 @@ class Pagy
 
       def countless? = true
 
-      def upto_max_pages(value)
-        return value unless value && @options[:max_pages]
-
-        [value, @options[:max_pages]].min
-      end
-
       # Finalize the instance variables based on the fetched size
       def finalize(fetched_size)
         # empty records (trigger the right info message for known 0 count)
@@ -42,7 +35,7 @@ class Pagy
 
         past  = @last && @page < @last # current page is before the known last page
         more  = fetched_size > @limit  # more pages after this one
-        @last = upto_max_pages(more ? @page + 1 : @page) unless past && more
+        @last = (more ? @page + 1 : @page) unless past && more
         @in   = [fetched_size, @limit].min
         @from = @in.zero? ? 0 : @offset + 1
         @to   = @offset + @in
@@ -63,6 +56,8 @@ class Pagy
       def compose_page_param(page)
         EscapedValue.new("#{page || 1}+#{@last}")
       end
+
+      prepend Deprecated::Countless if defined?(Deprecated::Countless)
     end
   end
 end

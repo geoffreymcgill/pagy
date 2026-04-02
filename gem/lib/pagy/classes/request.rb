@@ -28,7 +28,7 @@ class Pagy
 
     def resolve_limit
       default   = @options[:limit] || DEFAULT[:limit]
-      max_limit = @options[:client_max_limit]
+      max_limit = @options[:max_limit]
       return default unless max_limit
 
       limit_key = @options[:limit_key] || DEFAULT[:limit_key]
@@ -42,5 +42,7 @@ class Pagy
     def get_params(request)
       request.GET.merge(request.POST).to_h.freeze
     end
+
+    prepend Deprecated::Request if defined?(Deprecated::Request)
   end
 end

@@ -142,9 +142,9 @@ describe 'Pagy::Linkable Specs' do
       _(url).must_equal_url '/foo?c=d&page=2'
     end
 
-    it 'handles client_max_limit' do
-      # If client_max_limit is set, the limit param is included
-      subject = linkable_class.new(options: { client_max_limit: 50, limit: 10 })
+    it 'handles max_limit' do
+      # If max_limit is set, the limit param is included
+      subject = linkable_class.new(options: { max_limit: 50, limit: 10 })
       url = subject.call_compose_page_url(2)
       _(url).must_equal_url '/foo?limit=10&page=2'
     end

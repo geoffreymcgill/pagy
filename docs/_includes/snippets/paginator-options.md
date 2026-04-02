@@ -1,10 +1,10 @@
 `limit: 10`
 : Specifies the number of items per page (default: `20`)
 
-`client_max_limit: 1_000`
-: Set the maximum `:limit` that the client is allowed to `request`. Higher requested `:limit`s are silently capped.
+`max_limit: 200`
+: Allow the client to request a `:limit` up to `:max_limit`. A higher requested `:limit` is silently capped.
 
-  **IMPORTANT** If falsey, the client cannot request any `:limit`.
+  **IMPORTANT** If falsey or zero, the client cannot request any `:limit`.
 
 `page: force_page`
 : Set it only to force the current `:page`. _(It is set automatically from the request param)_.

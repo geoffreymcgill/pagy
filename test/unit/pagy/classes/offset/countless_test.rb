@@ -20,13 +20,6 @@ describe 'Pagy::Offset::Countless Specs' do
       _(pagy.limit).must_equal 10
       _(pagy.offset).must_equal 10
     end
-
-    it 'handles max_pages' do
-      assert_output(nil, /:max_pages/) do
-        pagy = pagy_class.new(page: 10, max_pages: 5)
-        _(pagy.page).must_equal 5 # clamped
-      end
-    end
   end
 
   describe 'identity' do
