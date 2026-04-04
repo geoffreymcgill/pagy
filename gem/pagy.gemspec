@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'json'
   s.add_dependency 'uri'
   s.add_dependency 'yaml'
-  s.required_ruby_version = '>= 3.2'
+  s.required_ruby_version = '>= 3.3'
 end
