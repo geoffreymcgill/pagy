@@ -54,7 +54,10 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - name: Check Rubocop compliance
+      - name: Test Rubocop compliance
         run: bundle exec rubocop --format github
-      - name: Check Tests
-        run: ${{ matrix.ruby-version == '4.0' && 'COVERAGE=true ' || '' }}bundle exec rake test:unit # fail for coverage < 100%
+      - name: Test Units
+        run: bundle exec rake test:units
+      - name: Test Coverage
+        if: matrix.ruby-version == '4.0'
+        run: bundle exec rake test:coverage # fail for coverage < 100%

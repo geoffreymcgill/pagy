@@ -1,52 +1,38 @@
 # frozen_string_literal: true
 
-require 'rake/testtask'
-require_relative '../test/e2e/helpers/e2e_app'
+require 'json'
 
-# Helper to define tasks
-def define_test_task(name, pattern)
-  Rake::TestTask.new(name) do |t|
-    t.libs    = %w[gem/lib test]
-    t.pattern = pattern
-    t.warning = true
-  end
-end
-
-# Task for all tests
-define_test_task(:test, 'test/**/*_test.rb')
+next_test = 'test/unit/pagy/next_test.rb'
 
 namespace :test do
-  # Task for Unit tests only
-  define_test_task(:unit, 'test/unit/**/*_test.rb')
+  # Task for Unit tests only (excluding next)
+  TaskHelper.def_test_task(:unit, 'test/unit/**/*_test.rb', exclude: next_test)
 
-  # Task for E2E tests only
-  define_test_task(:e2e, 'test/e2e/**/*_test.rb')
+  # Isolated task for Next only
+  TaskHelper.def_test_task(:next, next_test)
 
-  namespace :e2e do
-    E2eApp::APPS.each_key do |app|
-      define_test_task(app, "test/e2e/#{app}_test.rb")
-    end
+  desc 'Test all units (unit and next)'
+  task units: %i[unit next]
 
-    desc 'Download external assets for E2E tests'
-    task :download_assets do
-      require 'fileutils'
-      require 'open-uri'
+  task(:cov_env) { ENV['COVERAGE'] = 'true' } # rubocop:disable Rake/Desc
 
-      assets_path = Pagy::ROOT.join('../test/e2e/assets')
-      puts "Asset directory: #{assets_path}"
-      FileUtils.mkdir_p(assets_path)
+  desc 'Test all units and coverage'
+  task coverage: %i[cov_env unit next] do
+    path   = Pagy::ROOT.join('../coverage')
+    result = JSON.parse(path.join('.last_run.json').read)['result']
+    line   = result['line']
+    branch = result['branch']
 
-      assets = {
-        'tailwind.js'       => 'https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio',
-        'bootstrap.min.css' => 'https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css',
-        'bulma.min.css'     => 'https://cdn.jsdelivr.net/npm/bulma@1/css/bulma.min.css'
-      }
+    next if [line, branch].all?(100)  # next ends the task here
 
-      assets.each do |filename, url|
-        puts "Downloading #{url} to #{filename}"
-        content = URI.parse(url).open.read
-        File.write(File.join(assets_path, filename), content)
-      end
-    end
+    miss_pct = -> { format('%7.2f%%', -100 + _1) }
+    warn <<~MISS
+
+      >>> MISSING COVERAGE!
+      #{">>> LINE:   #{miss_pct.(line)}" if line < 100}
+      #{">>> BRANCH: #{miss_pct.(branch)}" if branch < 100}
+      >>> Report: file://#{path.join('index.html')}
+    MISS
+    exit 2
   end
 end

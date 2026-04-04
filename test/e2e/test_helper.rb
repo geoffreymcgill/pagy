@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV.delete('COVERAGE') # Allow to skip the coverage when used after its task
+
 require_relative '../test_helper'
 
 require 'ferrum'

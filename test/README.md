@@ -12,9 +12,10 @@ No other setup required.
 ## Test subtasks
 
 ```
-rake test        <-- All Unit and E2e
-rake test:unit   <-- All Unit
-rake test:e2e    <-- All E2e
+rake                 <-- All Units + Coverage + E2e
+rake test:coverage   <-- All Units + Coverage
+rake test:units      <-- Only Units
+rake test:e2e        <-- Only E2e
 
 rake test:e2e:calendar
 rake test:e2e:demo
@@ -27,6 +28,4 @@ rake test:e2e:repro
 
 To get green light for PRs, just run them all in ~10secs...
 
-`COVERAGE=true bundle exec rake rubocop test`
-
-![Test Screenshot](test.png)
+`bundle exec rake`

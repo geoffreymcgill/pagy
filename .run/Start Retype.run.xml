@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Start Retype" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="bunx retype start --port 5000" />
+  <configuration default="false" name="Start Retype" type="ShConfigurationType" folderName="Tools">
+    <option name="SCRIPT_TEXT" value="bun retype start --port 5000" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />

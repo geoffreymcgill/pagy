@@ -1,3 +1,5 @@
 # frozen_string_literal: true
 
-Rake.add_rakelib 'tasks'
+require_relative 'tasks/helper'
+
+task default: %i[rubocop test:coverage test:e2e]
