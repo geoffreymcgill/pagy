@@ -353,7 +353,7 @@ Unlike other gems, Pagy does not decide for you that the nav of a single page of
   - [series_nav_js](/toolbox/helpers/series_nav_js)
   - [series_nav_js](/toolbox/helpers/input_nav_js)
 - When possible
-  - [Paginate only MAX records](./#paginate-only-max-records)
+  - [Paginate only MAX records](#paginate-only-max-records)
 
 ==- Ignore Brakeman false positives warnings
 

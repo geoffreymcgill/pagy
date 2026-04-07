@@ -36,18 +36,6 @@ links:
     icon: comment-discussion
     target: blank
 
-include:
-  - gem/**
-  - "!gem/apps/**"
-  - "!gem/bin/**"
-  - "!gem/lib/**"
-  - "!gem/locales/**"
-  - gem/locales/en.yml
-  - "!gem/pagy.gemspec"
-  - "!gem/**/tmp/**"
-  - "!gem/**/README.md"
-  - README.md
-
 search:
   mode: full
 

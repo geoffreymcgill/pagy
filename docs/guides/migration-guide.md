@@ -1,5 +1,5 @@
 ---
-label: Migrate From Other Gems
+label: Migrate Legacy Pagination
 icon: paper-airplane
 order: 80
 ---

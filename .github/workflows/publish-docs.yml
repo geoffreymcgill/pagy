@@ -22,18 +22,10 @@ jobs:
             ".github/workflows/publish-docs.yml",
             "assets/**",
             "docs/**",
-            "gem/**",
+            "gem/config/pagy.rb",
+            "gem/locales/en.yml"
+            "gem/stylesheets/**",
             "README.md"
-            ]'
-          paths_ignore: '[
-            "gem/apps/**",
-            "gem/bin/**",
-            "gem/lib/**",
-            "gem/locales/**",
-            "!gem/locales/en.yml",
-            "!gem/pagy.gemspec",
-            "!gem/**/tmp/**",
-            "!gem/**/README.md"
             ]'
           do_not_skip: '["workflow_dispatch"]'
 
