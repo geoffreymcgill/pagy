@@ -8,8 +8,8 @@ require_relative '../../apps/index'
 
 class Pagy
   class CLI
-    HOST  = 'localhost'
-    PORT  = '8000'
+    HOST = 'localhost'
+    PORT = '8000'
 
     def start(args = ARGV)
       options = parse_options(args)
@@ -27,9 +27,9 @@ class Pagy
           Playground to showcase, clone and develop Pagy APPs
 
           Usage:
-            pagy APP [opts]   Showcase APP from the installed gem
-            pagy clone APP    Clone APP to the current dir
-            pagy FILE [opts]  Develop app FILE from local path
+            pagy APP [opts]    Showcase APP from the installed gem
+            pagy clone APP     Clone APP to the current dir
+            pagy FILE [opts]   Develop app FILE from local path
         BANNER
 
         opts.summary_indent = '  '
@@ -38,16 +38,16 @@ class Pagy
         opts.separator "\nAPPs"
         PagyApps::INDEX.each do |name, path|
           desc = File.readlines(path)[3].sub('#    ', '').strip
-          opts.separator "  #{name.ljust(18)}#{desc}"
+          opts.separator "  #{name.ljust(19)}#{desc}"
         end
 
-        opts.separator "\nRackup options"
+        opts.separator "\nRackup Options"
         opts.on('-e', '--env ENV', 'Environment')     { |v| options[:env] = v }
         opts.on('-o', '--host HOST', 'Host')          { |v| options[:host] = v }
         opts.on('-p', '--port PORT', 'Port')          { |v| options[:port] = v }
         opts.on('-t', '--threads THREADS', 'Threads') { |v| options[:threads] = v }
 
-        opts.separator "\nOther options"
+        opts.separator "\nOther Options"
         opts.on('-q', '--quiet', 'Quiet mode for development') { options[:quiet] = true }
         opts.on('-v', '--version', 'Show version') do
           puts VERSION
@@ -79,9 +79,6 @@ class Pagy
     end
 
     def run_command(args, options)
-      run_from_repo = Pagy::ROOT.join('pagy.gemspec').exist?
-      setup_gems(run_from_repo)
-
       arg = args.shift
 
       if arg.eql?('clone')
@@ -120,16 +117,6 @@ class Pagy
       rackup << ' -q' if options[:quiet]
 
       exec(rackup)
-    end
-
-    # Kept as a separate method because mocking 'gemfile' (dsl) is complex otherwise
-    def setup_gems(run_from_repo)
-      require 'bundler/inline'
-      gemfile(!run_from_repo) do
-        source 'https://rubygems.org'
-        gem 'logger'
-        gem 'rackup'
-      end
     end
   end
 end
