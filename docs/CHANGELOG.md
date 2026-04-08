@@ -20,7 +20,7 @@ expect the old/deprecated functionality to be supported ONLY during the current 
 
 ### Recommended Version Constraint
 
-Given a version number `MAJOR.MINOR.PATCH` (e.g. `43.4.40`):
+Given a version number `MAJOR.MINOR.PATCH` (e.g. `43.5.40`):
 
 The `gem 'pagy', '~> 43.0'` Gemfile entry (without the PATCH number) ensures that the `bundle update` command will update pagy to
 the most recent version WITHOUT BREAKING CHANGES.
@@ -55,6 +55,16 @@ If you upgrade from version `< 9.0.0` see the following:
   **IMPORTANT**: The [Issue #890](https://github.com/ddnexus/pagy/issues/890) still affect the `:max_pages` option, so stop using it ASAP.
 - `:client_max_limit` option: use `:max_limit` instead.
 <hr>
+
+#### Version 43.5.0
+
+- Update javascripts according to es-linting
+- Update min ruby version to 3.3 (remove EOL 3.2)
+- Implement the NEW `pagy/next` entrypoint to run the NEXT version now
+- Refactor deprecations:
+  - Deprecated :client_max_limit in favor of :max_limit; moved code into deprecation.rb
+  - Move deprecated options out of class code, to keep the code clean
+- Remove RBS resources. Not worth the maintenance effort.
 
 #### Version 43.4.4
 

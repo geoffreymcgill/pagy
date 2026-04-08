@@ -136,7 +136,7 @@ export default (() => {
     });
   };
   return {
-    version: "43.4.4",
+    version: "43.5.0",
     init(arg) {
       const target = arg instanceof HTMLElement ? arg : document, elements = target.querySelectorAll("[data-pagy]");
       for (const element of elements) {
