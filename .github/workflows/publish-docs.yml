@@ -23,7 +23,7 @@ jobs:
             "assets/**",
             "docs/**",
             "gem/config/pagy.rb",
-            "gem/locales/en.yml"
+            "gem/locales/en.yml",
             "gem/stylesheets/**",
             "README.md"]'
           do_not_skip: '["workflow_dispatch"]'
