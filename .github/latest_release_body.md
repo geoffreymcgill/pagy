@@ -1,13 +1,7 @@
-### Changes in 43.5.0
+### Changes in 43.5.1
 
 <!-- changes_start -->
-- Update javascripts according to es-linting
-- Update min ruby version to 3.3 (remove EOL 3.2)
-- Implement the NEW `pagy/next` entrypoint to run the NEXT version now
-- Refactor deprecations:
-  - Deprecated :client_max_limit in favor of :max_limit; moved code into deprecation.rb
-  - Move deprecated options out of class code, to keep the code clean
-- Remove RBS resources. Not worth the maintenance effort.
+- Remove ghost code from cli; improve tests
 <!-- changes_end -->
 
 [CHANGELOG](https://ddnexus.github.io/pagy/changelog)

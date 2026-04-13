@@ -16,7 +16,7 @@ It is not a requirement, but if present, the pagy `JSON` generation will be fast
 
 ### Setup
 
->>> Pick a format...
+>>> Pick a file...
 
 +++ pagy.mjs
 
@@ -45,7 +45,7 @@ Make `Pagy` available in your JavaScript environment with...
 
 +++ pagy.js
 
-!!!warning Use it only for development / debugging of Pagy itself.
+!!!warning Use it only for debugging Pagy itself.
 !!!
 
 +++

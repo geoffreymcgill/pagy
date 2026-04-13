@@ -6,11 +6,6 @@ require 'pagy/cli'
 describe 'Pagy::CLI Specs' do
   let(:cli) { Pagy::CLI.new }
 
-  # Stub side-effects: setup_gems
-  before do
-    cli.define_singleton_method(:setup_gems) { |_| true }
-  end
-
   describe 'Options' do
     it 'shows help with no args' do
       # Capture stdout and expect exit(0)
@@ -25,6 +20,13 @@ describe 'Pagy::CLI Specs' do
         _ { cli.start(['-v']) }.must_raise SystemExit
       end
       _(out).must_include Pagy::VERSION
+    end
+
+    it 'shows help with -h' do
+      out, = capture_io do
+        _ { cli.start(['-h']) }.must_raise SystemExit
+      end
+      _(out).must_include 'Usage:'
     end
 
     it 'aborts on invalid option' do
@@ -101,6 +103,20 @@ describe 'Pagy::CLI Specs' do
         _ { cli.start(['missing.ru']) }.must_raise SystemExit
       end
       _(err).must_include 'app not found'
+    end
+
+    it 'sets SECRET_KEY_BASE for rails app' do
+      cli.stub :exec, ->(cmd) { cmd } do
+        cli.start(['rails'])
+        _(ENV.fetch('SECRET_KEY_BASE')).must_equal 'absolute secret!'
+      end
+    end
+
+    it 'includes threads option' do
+      cli.stub :exec, ->(cmd) { cmd } do
+        cmd = cli.start(['demo', '-t', '5'])
+        _(cmd).must_include '-O Threads=5'
+      end
     end
   end
 end

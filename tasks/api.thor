@@ -6,15 +6,23 @@ class Test < Thor
   class Api < Test
     desc 'current', 'Test current API'
     def current
-      puts "\nTesting current API..."
-      files = Dir.glob('test/unit/**/*_test.rb').reject { _1.include?('next_test.rb') }
-      run_tests(files)
+      puts "\nTesting the CURRENT API..."
+
+      files = Dir.glob('test/unit/**/*_test.rb')
+                 .push('test/api/current_test.rb')
+
+      run_tests(files, 'COMMAND_NAME' => 'CURRENT_API')
     end
 
     desc 'next', 'Test next API'
     def next
-      puts "\nTesting next API..."
-      run_tests(['test/unit/pagy/next_test.rb'], 'PAGY_NEXT' => 'true')  # Isolated process
+      puts "\nTesting the NEXT API..."
+
+      files = Dir.glob('test/unit/**/*_test.rb')
+                 .reject { _1.include?('version_test.rb') }  # PAGY::VERSION in files must be CURRENT
+                 .push('test/api/next_test.rb')
+
+      run_tests(files, 'COMMAND_NAME' => 'NEXT_API', 'PAGY_NEXT' => 'true')
     end
 
     desc 'all', 'Test current and next API'
@@ -25,23 +33,22 @@ class Test < Thor
 
     desc 'coverage', 'Test API coverage'
     def coverage
-      ENV['COVERAGE'] = 'true' # for all tasks
+      ENV['COVERAGE'] = 'true' # set COVERAGE for all (see run_tests)
       invoke 'all'
-      path   = Pathname.new(`git rev-parse --show-toplevel`.chomp).join('coverage')
-      result = JSON.parse(path.join('.last_run.json').read)['result']
-      line, branch = result.values_at('line', 'branch')
 
-      return if [line, branch].all?(100)  # next ends the task here
+      # Require SimpleCov just to check the coverage of the api tasks
+      require 'simplecov'
+      SimpleCov.formatter = SimpleCov::Formatter::HTMLFormatter # create the HTML report
+      SimpleCov.merge_timeout(10) unless ENV['CI']              # fast dev env iterations
+      SimpleCov.minimum_coverage(line: 100, branch: 100)        # require minimum_coverage from the all task results
 
-      miss_pct = -> { format('%7.2f%%', -100 + _1) }
-      warn <<~MISS
-
-        >>> MISSING COVERAGE!
-        #{">>> LINE:   #{miss_pct.(line)}" if line < 100}
-        #{">>> BRANCH: #{miss_pct.(branch)}" if branch < 100}
-        >>> Report: file://#{path.join('index.html')}
-      MISS
-      exit 2
+      puts
+      begin
+        SimpleCov.at_exit_behavior # Trigger exit(2) if coverage is insufficient
+      rescue SystemExit => e
+        puts "Report: file://#{SimpleCov.coverage_path}/index.html" if e.status == 2
+        raise
+      end
     end
   end
 end

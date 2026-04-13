@@ -7,9 +7,9 @@ require_relative '../test_helper'
 require Pagy::ROOT.join('apps/index').to_s
 
 describe 'Version match' do
-  let(:version)   { Pagy::VERSION }
-  let(:major)     { version.split('.')[0] }
-  let(:minor)     { version.split('.')[1] }
+  let(:version) { Pagy::VERSION }
+  let(:major)   { version.split('.')[0] }
+  let(:minor)   { version.split('.')[1] }
 
   # Pagy::ROOT is 'gem/'. We assume the repo root is one level up.
   let(:repo_root) { Pagy::ROOT.parent }

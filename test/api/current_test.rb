@@ -47,6 +47,7 @@ describe 'Pagy Deprecated Code' do
         _(pagy.options[:client_max_limit]).must_be_nil
       end
     end
+
     it 'works with the resolve_limit' do
       assert_output(nil, /:client_max_limit/) do
         limit = Pagy::Request.new({ request: { base_url: 'http://example.com',
@@ -63,6 +64,7 @@ describe 'Pagy Deprecated Code' do
         Pagy.options
       end
     end
+
     it "works with Pagy.sync_javascript" do
       assert_output(nil, /Pagy.sync_javascript/) do
         targets = %w[pagy.js pagy.min.js]

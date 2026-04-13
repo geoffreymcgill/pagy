@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
+SimpleCov.formatter = SimpleCov::Formatter::SimpleFormatter
+
 SimpleCov.start do
   track_files 'gem/lib/**/*.rb'
-  add_filter %w[gem/apps/
-                gem/lib/pagy/cli.rb
-                gem/lib/pagy/console.rb
-                /test/]
-  command_name "##{$PROCESS_ID}"
-  merge_timeout 30 unless ENV['CI']
+  add_filter %w[/test/]
   enable_coverage :branch
+  command_name(ENV.fetch('COMMAND_NAME', ''))
 end

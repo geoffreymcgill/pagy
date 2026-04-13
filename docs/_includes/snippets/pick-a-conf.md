@@ -5,7 +5,7 @@
 !!!success Works with any app
 !!!
 
-The following statement will copy and keep synced the `pagy*` file in your own `{{ $.remote_dir }}` dir _(or any dir you may want use)_.
+The following statement will copy and keep synced your picked `pagy*` file in your own `{{ $.remote_dir }}` dir _(or any dir you may want use)_.
 
 It will become and processed exactly like one of your own files.
 

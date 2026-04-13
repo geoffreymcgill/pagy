@@ -16,11 +16,13 @@ describe 'Pagy Next Mode' do
       err = _ { Pagy::Offset.new(page: 10, max_pages: 5) }.must_raise Pagy::NextError
       _(err.message).must_match(':max_pages')
     end
+
     it 'works with Countless' do
       # Confirm the 'max_pages' override is not active
       err = _ { Pagy::Offset::Countless.new(page: 10, max_pages: 5) }.must_raise Pagy::NextError
       _(err.message).must_match(':max_pages')
     end
+
     it 'works with Keynav' do
       set = Pet.order(:id)
       err = _ do
@@ -38,13 +40,15 @@ describe 'Pagy Next Mode' do
       pagy = Pagy::Offset.new(limit: 10, max_limit: 5)
       _(pagy.options[:max_limit]).must_equal 5
     end
+
     it 'does not warn or translate legacy client_max_limit options' do
       err = _ { Pagy::Offset.new(limit: 10, client_max_limit: 5) }.must_raise Pagy::NextError
       _(err.message).must_match(':client_max_limit')
     end
+
     it 'works with the resolve_limit' do
       limit = Pagy::Request.new({ request: { base_url: 'http://example.com',
-                                             params: { 'limit' => 21 }},
+                                             params: { 'limit' => 21 } },
                                   client_max_limit: 30 }).resolve_limit
       _(limit).must_equal 20
     end
@@ -55,6 +59,7 @@ describe 'Pagy Next Mode' do
       # Using 'respond_to?' avoids triggering a NoMethodError
       _(Pagy.respond_to?(:options)).must_equal false
     end
+
     it "works with Pagy.sync_javascript" do
       _(Pagy.respond_to?(:sync_javascript)).must_equal false
     end

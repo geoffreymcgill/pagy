@@ -56,7 +56,7 @@ Add this line to any template `<head>`...
 <%== Pagy.dev_tools %>
 ```
 
-and adjust a few sliders to see the change in real time, right in your app, with the [Pagy Wand](/sandbox/dev_tools)
+and adjust a few sliders to see the change in real time, right in your app, with the [Pagy Wand](/sandbox/dev_tools). Then copy the `CSS Override` field and paste it in your own CSS.
 
 :::raised
 ![PagyWand](/assets/images/dev-tools.png){width=300}

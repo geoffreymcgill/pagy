@@ -25,8 +25,7 @@ jobs:
             "gem/config/pagy.rb",
             "gem/locales/en.yml"
             "gem/stylesheets/**",
-            "README.md"
-            ]'
+            "README.md"]'
           do_not_skip: '["workflow_dispatch"]'
 
   publish:

@@ -208,7 +208,7 @@ export default (() => {
 
   // Public interface
   return {
-    version: "43.5.0",
+    version: "43.5.1",
 
     // Scan for elements with a "data-pagy" attribute and call their init functions with the decoded args
     init(arg?:HTMLElement) {
