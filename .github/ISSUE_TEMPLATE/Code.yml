@@ -8,10 +8,8 @@ body:
     attributes:
       value: |
         #### Thank you for your bug report!
-        
-        Please understand that...
-        1. Code issues are reserved for real, REPRODUCIBLE code bugs
-        2. We won't guess/install/setup/debug your problem out of some description/snippet/complete-application.
+
+        Please understand that code issues are reserved for real, REPRODUCIBLE code bugs.
 
         _If you are not sure that your problem is actually a bug, or you have problems reproducing it, please ask for [support](https://github.com/ddnexus/pagy/discussions/categories/q-a) instead._
 
@@ -19,9 +17,10 @@ body:
 
         1. Run Pagy version 43.5.1
         2. Search through [Docs](https://ddnexus.github.io/pagy/), [Issues](https://github.com/ddnexus/pagy/issues), and [Q&A](https://github.com/ddnexus/pagy/discussions/categories/q-a)
-        3. Provide MINIMAL code to reproduce it. For example:
+        3. Provide the BARE running code to REPRODUCE it with a single file or command:
           - An edited single-file APP from the [Pagy Playground](https://ddnexus.github.io/pagy/sandbox/playground)
           - A plain ruby file that can run as a single command like `ruby my_issue.rb`
+        4. **IMPORTANT: Snippets/instrucions/descriptions ARE NONE of the above! We need a SINGLE FILE to run that shows the issue.**
 
   - type: checkboxes
     id: support
