@@ -33,60 +33,60 @@ L9-b293f22afe17e078:
 L13-55e9f67933898a5e:
 - :location: ''
 - "#records": "@records: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a role="link" aria-disabled="true"
-    aria-label="Previous">&lt;</a><a role="link" aria-current="page" aria-disabled="true">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a><a>8</a><a>9</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a role="link" aria-disabled="true" aria-label="Previous">&lt;</a><a
+    role="link" aria-current="page" aria-disabled="true">1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a><a>8</a><a>9</a><a
     role="separator" aria-disabled="true">…</a><a>50</a><a rel="next" aria-label="Next">&gt;</a></nav>
 - :location: "?page=2&limit=20"
 - "#records": "@records: 21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="link" aria-current="page" aria-disabled="true">2</a><a>3</a><a>4</a><a>5</a><a
     role="separator" aria-disabled="true">…</a><a>50</a><a rel="next" aria-label="Next">&gt;</a></nav>
 - :location: "?page=3&limit=20"
 - "#records": "@records: 41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a>2</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a>2</a><a
     role="link" aria-current="page" aria-disabled="true">3</a><a>4</a><a>5</a><a role="separator"
     aria-disabled="true">…</a><a>50</a><a rel="next" aria-label="Next">&gt;</a></nav>
 - :location: "?page=50&limit=20"
 - "#records": "@records: 981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>46</a><a>47</a><a>48</a><a>49</a><a
     role="link" aria-current="page" aria-disabled="true">50</a><a role="link" aria-disabled="true"
     aria-label="Next">&gt;</a></nav>
 - :location: "?page=49&limit=20"
 - "#records": "@records: 961,962,963,964,965,966,967,968,969,970,971,972,973,974,975,976,977,978,979,980"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>46</a><a>47</a><a>48</a><a role="link"
     aria-current="page" aria-disabled="true">49</a><a>50</a><a rel="next" aria-label="Next">&gt;</a></nav>
 - :location: "?page=50&limit=20"
 - "#records": "@records: 981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>44</a><a>45</a><a>46</a><a>47</a><a>48</a><a>49</a><a
     role="link" aria-current="page" aria-disabled="true">50</a><a role="link" aria-disabled="true"
     aria-label="Next">&gt;</a></nav>
 - :location: "?page=50&limit=20"
 - "#records": "@records: 981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>44</a><a>45</a><a>46</a><a>47</a><a>48</a><a>49</a><a
     role="link" aria-current="page" aria-disabled="true">50</a><a role="link" aria-disabled="true"
     aria-label="Next">&gt;</a></nav>
 - :location: "?page=50&limit=20"
 - "#records": "@records: 981,982,983,984,985,986,987,988,989,990,991,992,993,994,995,996,997,998,999,1000"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>44</a><a>45</a><a>46</a><a>47</a><a>48</a><a>49</a><a
     role="link" aria-current="page" aria-disabled="true">50</a><a role="link" aria-disabled="true"
     aria-label="Next">&gt;</a></nav>
 - :location: "?page=49&limit=20"
 - "#records": "@records: 961,962,963,964,965,966,967,968,969,970,971,972,973,974,975,976,977,978,979,980"
-- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy-rjs
-    pagy series-nav-js" aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
+- "#series-nav-js-responsive": <nav id="series-nav-js-responsive" class="pagy series-nav-js"
+    aria-label="Pages nav_js_responsive"><a rel="prev" aria-label="Previous">&lt;</a><a>1</a><a
     role="separator" aria-disabled="true">…</a><a>44</a><a>45</a><a>46</a><a>47</a><a>48</a><a
     role="link" aria-current="page" aria-disabled="true">49</a><a>50</a><a rel="next"
     aria-label="Next">&gt;</a></nav>

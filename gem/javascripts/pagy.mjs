@@ -20,7 +20,7 @@ export default (() => {
   }
   const rjsObserver = new ResizeObserver((entries) => {
     entries.forEach((e) => {
-      e.target.querySelectorAll(".pagy-rjs").forEach((el) => {
+      e.target.querySelectorAll(".series-nav-js").forEach((el) => {
         el.render();
       });
     });
@@ -76,11 +76,11 @@ export default (() => {
     [widths, series, labels],
     keynavArgs
   ]) => {
-    const parent = nav.parentElement;
     let lastWidth = -1;
-    (nav.render = () => {
+    const parent = nav.parentElement;
+    nav.render = () => {
       const index = widths.findIndex((w) => w < parent.clientWidth);
-      if (widths[index] === lastWidth) {
+      if (index === -1 || widths[index] === lastWidth) {
         return;
       }
       let html = before;
@@ -94,10 +94,8 @@ export default (() => {
       if (keynavArgs && storageSupport) {
         augmentKeynav(nav, keynavArgs);
       }
-    })();
-    if (nav.classList.contains(pagy + "-rjs")) {
-      rjsObserver.observe(parent);
-    }
+    };
+    rjsObserver.observe(parent);
   };
   const initInputNavJs = async (nav, [url_token, pageToken, keynavArgs]) => {
     const augment = keynavArgs && storageSupport ? await augmentKeynav(nav, keynavArgs) : (page) => page;
