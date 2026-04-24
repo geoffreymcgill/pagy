@@ -98,13 +98,6 @@ describe 'Pagy#wrap_series_nav_js' do
       _(html).must_match("\"[:snj, [\"A\", \"B\"], \"P \", [[0], [[1, 2, 3]], nil]]\"")
     end
 
-    it 'adds pagy-rjs class for multiple steps' do
-      pagy = pagy_class.new(steps: { 0 => 3, 100 => 5 })
-      html = pagy.wrap_series_nav_js({}, 'nav-class')
-
-      _(html).must_match(/class="pagy-rjs nav-class"/)
-    end
-
     it 'includes update info if keynav' do
       pagy = pagy_class.new(slots: 3, keynav: true)
       html = pagy.wrap_series_nav_js({}, 'cls')

@@ -1,7 +1,8 @@
-### Changes in 43.5.1
+### Changes in 43.5.2
 
 <!-- changes_start -->
-- Remove ghost code from cli; improve tests
+- Add type validation for page and limit keys type (close #895)
+- Simplify series_nav_js removing "pagy-rjs" CSS class (Fix #894)
 <!-- changes_end -->
 
 [CHANGELOG](https://ddnexus.github.io/pagy/changelog)

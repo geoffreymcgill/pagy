@@ -52,30 +52,25 @@ Make `Pagy` available in your JavaScript environment with...
 
 {{ include "snippets/pick-a-conf" resource: ":javascript" resource_dir: "javascripts" remote_dir: "app/javascript" }}
 
->>> Add the `Pagy.init` to an event...
+>>> Run the `Pagy.init` on...
 
-+++ load
++++ "load" event
+
+Pick which applies to your environment:
 
 ```js
 window.addEventListener("load", Pagy.init)
-```
-
-+++ turbo:load
-
-```js
 window.addEventListener("turbo:load", Pagy.init)
-```
-
-+++ turbolinks:load
-
-```js
 window.addEventListener("turbolinks:load", Pagy.init)
+window.addEventListener("your-event", Pagy.init)
 ```
 
-+++ custom
++++ Stimulus connect
 
 ```js
-window.addEventListener("your-event", Pagy.init)
+connect() {
+  Pagy.init(this.element);
+}
 ```
 
 +++

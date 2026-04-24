@@ -99,6 +99,7 @@ module E2eFunctions
   def interact_with_nav(id, pages)
     # Check Next
     interact_and_hold(id) do
+      sleep 0.5
       browser.at_css(id).at_xpath(".//a[contains(text(), '>')]").click
     end
 

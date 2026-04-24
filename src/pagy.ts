@@ -72,7 +72,7 @@ export default (() => {
   // The observer instance for responsive navs
   const rjsObserver = new ResizeObserver(entries => {
     entries.forEach(e => {
-      e.target.querySelectorAll<NavJsElement>(".pagy-rjs").forEach(el => {
+      e.target.querySelectorAll<NavJsElement>(".series-nav-js").forEach(el => {
         el.render();
       });
     });
@@ -144,11 +144,12 @@ export default (() => {
   // Build the series_nav_js helper
   const buildNavJs = (nav:NavJsElement, [[before, anchor, current, gap, after], pageToken,
                                         [widths, series, labels], keynavArgs]:SeriesNavJsArgs) => {
-    const  parent = <HTMLElement>nav.parentElement;
     let lastWidth = -1;
-    (nav.render = () => {
+    const parent  = <HTMLElement>nav.parentElement;
+
+    nav.render = () => {
       const index = widths.findIndex(w => w < parent.clientWidth);
-      if (widths[index] === lastWidth) { return } // no change: abort
+      if (index === -1 || widths[index] === lastWidth) { return }
 
       let html = before;
       series[index].forEach((item, i) => {
@@ -163,8 +164,9 @@ export default (() => {
       nav.insertAdjacentHTML("afterbegin", html);
       lastWidth = widths[index];
       if (keynavArgs && storageSupport) { void augmentKeynav(nav, keynavArgs) }
-    })();
-    if (nav.classList.contains(pagy + "-rjs")) { rjsObserver.observe(parent) }
+    };
+
+    rjsObserver.observe(parent);
   };
 
   // Init the input_nav_js helpers
@@ -208,7 +210,7 @@ export default (() => {
 
   // Public interface
   return {
-    version: "43.5.1",
+    version: "43.5.2",
 
     // Scan for elements with a "data-pagy" attribute and call their init functions with the decoded args
     init(arg?:HTMLElement) {

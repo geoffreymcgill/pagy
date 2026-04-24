@@ -29,12 +29,9 @@ class Pagy
 
   # Common series_nav_js logic
   def wrap_series_nav_js(tokens, nav_classes, id: nil, aria_label: nil, **)
-    sequels     = sequels(**)
-    nav_classes = "pagy-rjs #{nav_classes}" if sequels[0].size > 1
-
     %(<nav#{%( id="#{id}") if id} class="#{nav_classes}" #{
       nav_aria_label_attribute(aria_label:)} #{
-      data = [:snj, tokens.values, PAGE_TOKEN, sequels]
+      data = [:snj, tokens.values, PAGE_TOKEN, sequels(**)]
       data.push(@update) if keynav?
       data_pagy_attribute(*data)
       }></nav>)

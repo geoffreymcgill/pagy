@@ -88,13 +88,19 @@ describe 'Pagy Specs' do
 
       # Invalid value (less than min)
       pagy = mock_pagy_class.new(limit: 0)
-      err = _ { pagy.check(limit: 1) }.must_raise Pagy::OptionError
+      err  = _ { pagy.check(limit: 1) }.must_raise Pagy::OptionError
       _(err.message).must_match 'expected :limit >= 1; got 0'
 
       # Invalid value (not a number)
       pagy = mock_pagy_class.new(limit: 'invalid')
-      err = _ { pagy.check(limit: 1) }.must_raise Pagy::OptionError
+      err  = _ { pagy.check(limit: 1) }.must_raise Pagy::OptionError
       _(err.message).must_match 'expected :limit >= 1; got "invalid"'
+
+      # Invalid value (not a string)
+      err  = _ {  mock_pagy_class.new(page_key: :invalid) }.must_raise Pagy::OptionError
+      _(err.message).must_match 'expected :page_key to be String; got :invalid'
+      err  = _ {  mock_pagy_class.new(limit_key: :invalid) }.must_raise Pagy::OptionError
+      _(err.message).must_match 'expected :limit_key to be String; got :invalid'
     end
   end
 end
