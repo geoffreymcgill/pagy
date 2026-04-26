@@ -27,11 +27,14 @@ class Pagy
   module HelperLoader
   end
 
-  paths = { public: { page_url:     'page_url',
-                      data_hash:    'data_hash',
-                      headers_hash: 'headers_hash',
-                      urls_hash:    'urls_hash',
-                      next_tag:     'anchor_tags' } }.freeze
+  paths = { public:    { page_url:     'page_url',
+                         data_hash:    'data_hash',
+                         headers_hash: 'headers_hash',
+                         urls_hash:    'urls_hash',
+                         next_tag:     'anchor_tags' },
+            protected: { series:       'support/series',
+                         page_label:   'support/a_lambda',
+                         a_lambda:     'support/a_lambda' } }.freeze
 
   aliaser.(HelperLoader, paths)
 

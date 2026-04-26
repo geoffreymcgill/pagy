@@ -2,7 +2,6 @@
 
 require_relative 'nav_aria_label_attribute'
 require_relative 'data_pagy_attribute'
-require_relative 'a_lambda' # inherited use
 
 class Pagy
   private

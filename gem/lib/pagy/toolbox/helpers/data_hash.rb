@@ -2,7 +2,7 @@
 
 class Pagy
   DEFAULT_DATA_KEYS = %i[url_template first_url previous_url current_url page_url next_url last_url
-                         count page limit last in from to previous next options].freeze
+                         count page limit last in from to previous next options series].freeze
 
   # Generate a hash of the wanted internal data
   def data_hash(data_keys: @options[:data_keys] || DEFAULT_DATA_KEYS, **)
