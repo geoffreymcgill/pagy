@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'support/a_lambda' # inheritable
-
 class Pagy
   module NumericHelpers
     def previous_tag(...) = anchor_tag_for(:previous, ...)

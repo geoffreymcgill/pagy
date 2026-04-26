@@ -16,16 +16,18 @@
 # config/routes.rb (example)
 # get '/comments(/:page)', to: 'comments#index'
 
-
-# Use plain Strings tokens instead of Pagy::EscapedValue strings
-Pagy.send(:remove_const, :PAGE_TOKEN)  ; Pagy::PAGE_TOKEN  = '___PAGY_PAGE___'
-Pagy.send(:remove_const, :LIMIT_TOKEN) ; Pagy::LIMIT_TOKEN = '___PAGY_LIMIT___'
-
 # Require the pagy sources to override
 require_relative '../lib/pagy/toolbox/paginators/method'
 require_relative '../lib/pagy/modules/abilities/linkable'
 
 class Pagy
+  # Use plain Strings tokens instead of Pagy::EscapedValue strings
+  remove_const(:PAGE_TOKEN)
+  PAGE_TOKEN = '___PAGY_PAGE___'
+
+  remove_const(:LIMIT_TOKEN)
+  LIMIT_TOKEN = '___PAGY_LIMIT___'
+
   # Switch to the `request.params` to get access to rails-added path parameters
   module RequestOverride
     def get_params(request)

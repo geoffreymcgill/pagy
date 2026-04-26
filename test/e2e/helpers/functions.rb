@@ -68,7 +68,17 @@ module E2eFunctions
     # Hold content for each id
     ids.each do |id|
       element = browser.at_css(id)
-      next unless element
+
+      #----- Wait for complete render
+      timeout = 5
+      start   = Time.now
+
+      while (Time.now - start) < timeout
+        break if element.text.strip != "" # Or check element.attribute("class")
+
+        sleep 0.1
+      end
+      #-----
 
       html = element.property('outerHTML')
       # Remove data-pagy and href attributes to avoid flakiness
@@ -99,7 +109,6 @@ module E2eFunctions
   def interact_with_nav(id, pages)
     # Check Next
     interact_and_hold(id) do
-      sleep 0.5
       browser.at_css(id).at_xpath(".//a[contains(text(), '>')]").click
     end
 

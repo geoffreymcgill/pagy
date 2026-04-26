@@ -6,7 +6,7 @@ require 'pagy/toolbox/helpers/data_hash'
 describe 'Pagy#data_hash' do
   let(:pagy_class) do
     Class.new(Pagy) do
-      attr_accessor :count, :page, :limit, :last, :in, :from, :to, :previous, :next, :options
+      attr_accessor :count, :page, :limit, :last, :in, :from, :to, :previous, :next, :options, :series
 
       def initialize(vars = {})
         @options  = vars[:options]  || {}
