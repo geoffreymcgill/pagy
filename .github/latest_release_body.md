@@ -1,8 +1,8 @@
-### Changes in 43.5.2
+### Changes in 43.5.3
 
 <!-- changes_start -->
-- Add type validation for page and limit keys type (close #895)
-- Simplify series_nav_js removing "pagy-rjs" CSS class (Fix #894)
+- Autoload series, a_lambda and page_label
+- Add Hungarian localization file for Pagy (#896)
 <!-- changes_end -->
 
 [CHANGELOG](https://ddnexus.github.io/pagy/changelog)
