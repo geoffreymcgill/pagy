@@ -6,6 +6,9 @@ input: .
 output: .public
 url: https://ddnexus.github.io/pagy/
 
+include:
+  - "/gem/config/pagy.rb"
+
 branding:
   title: Pagy
   logo: assets/images/pagy-the-frog.png
