@@ -22,6 +22,8 @@ You don't need any stylesheets if you use the pagy `:bootstrap` or `:bulma` help
 
 >>> Pick a file...
 
+[!file pagy.css](/gem/stylesheets/pagy.css)
+
 +++ pagy.css
 
 !!!success Good for any app
