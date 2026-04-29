@@ -6,31 +6,7 @@ on:
       - 'master' # run only for master
 
 jobs:
-  skip_check:
-    name: Skip Check
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5.3.1
-        with:
-          concurrent_skipping: 'never'
-          skip_after_successful_duplicate: 'true'
-          paths: '[
-            ".github/workflows/publish-docs.yml",
-            "assets/**",
-            "docs/**",
-            "gem/config/pagy.rb",
-            "gem/locales/en.yml",
-            "gem/stylesheets/**",
-            "README.md"]'
-          do_not_skip: '["workflow_dispatch"]'
-
   publish:
-    needs: skip_check
-    if: ${{ needs.skip_check.outputs.should_skip != 'true' }}
     name: Publish to docs-site branch
     runs-on: ubuntu-latest
     steps:
@@ -39,8 +15,6 @@ jobs:
           fetch-depth: 0
 
       - uses: retypeapp/action-build@latest
-        env:
-          RETYPE_KEY: ${{ secrets.RETYPE_KEY }}
         with:
           config_path: docs/
 
